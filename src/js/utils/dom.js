@@ -49,10 +49,10 @@ export function htmlToParentElement(html) {
 }
 
 export function sanitizeScriptNodes(element) {
-    const scripts = element.querySelectorAll('script');
-    for (let i = 0; i < scripts.length; i++) {
-        const script = scripts[i];
-        script.parentNode.removeChild(script);
+    const nodes = element.querySelectorAll('script,object,iframe');
+    for (let i = 0; i < nodes.length; i++) {
+        const node = nodes[i];
+        node.parentNode.removeChild(node);
     }
     return element;
 }
